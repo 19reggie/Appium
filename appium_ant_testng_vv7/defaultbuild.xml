@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<!--project元素是ant文件的根元素
+project元素的各属性
+name属性项目名
+default属性当调用时未指定target时，默认此target
+basedir属性相对根目录，为以后创建目录作参照，表示当前目录
+-->
+<!--ant常用任务
+copy该任务主要用来对文件和目录的复制功能
+delete对文件或目录进行删除
+mkdir创建目录
+move移动文件或目录
+echo该任务的作用是根据日志或监控器的级别输出信息。它包括message、file、append和level四个属性
+-->
+<project basedir="." default="build" name="appium_ant_testng">
+	<!--property元素可看作参量或者参数的定义-->
+	<property environment="env" />
+	<property name="ECLIPSE_HOME" value="D:/eclipse-jee-luna-SR1-win32-x86_64/eclipse/" />
+	<property name="junit.output.dir" value="junit" />
+	<property name="debuglevel" value="source,lines,vars" />
+	<property name="target" value="1.8" />
+	<property name="source" value="1.8" />
+	<path id="TestNG.libraryclasspath">
+		<pathelement location="${ECLIPSE_HOME}plugins/org.testng.eclipse_6.8.6.20141201_2240/lib/testng.jar" />
+	</path>
+	<path id="appium_ant_testng.classpath">
+		<pathelement location="bin" />
+		<pathelement location="E:/JAR27/java-client-2.2.0.jar" />
+		<pathelement location="E:/JAR27/reportng-1.1.4.jar" />
+		<pathelement location="E:/JAR27/selenium-java-2.45.0.jar" />
+		<pathelement location="E:/JAR27/selenium-server-standalone-2.45.0.jar" />
+		<pathelement location="E:/JAR27/testng-6.8.jar" />
+		<pathelement location="E:/JAR27/velocity-dep-1.4.jar" />
+		<path refid="TestNG.libraryclasspath" />
+	</path>
+	<!--target元素是ant的基本执行单元，可包含一个或多个具体的任务。多个target可以存在相互依赖关系
+	target元素的各属性
+	name属性指定target元素名称
+	depends属性用于描述target之间的依赖关系
+	if属性用于验证指定的属性是都存在，若不存在，所在target将不会被执行
+	unless属性该属性的功能与if属性的功能正好相反，用于验证指定的属性是否存在，若不存在所在target将会被执行
+	description属性该属性是关于target功能的简短描述和说明
+	-->
+	<target name="init">
+		<mkdir dir="bin" />
+		<copy includeemptydirs="false" todir="bin">
+			<fileset dir="src">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+	<target name="clean">
+		<delete dir="bin" />
+	</target>
+	<target depends="clean" name="cleanall" />
+	<target depends="build-subprojects,build-project" name="build" />
+	<target name="build-subprojects" />
+	<target depends="init" name="build-project">
+		<echo message="${ant.project.name}: ${ant.file}" />
+		<javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+			<src path="src" />
+			<classpath refid="appium_ant_testng.classpath" />
+		</javac>
+	</target>
+	<target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects" />
+	<target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+		<copy todir="${ant.library.dir}">
+			<fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar" />
+		</copy>
+		<unzip dest="${ant.library.dir}">
+			<patternset includes="jdtCompilerAdapter.jar" />
+			<fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar" />
+		</unzip>
+	</target>
+	<target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+		<property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter" />
+		<antcall target="build" />
+	</target>
+	<target name="Pck">
+		<mkdir dir="${junit.output.dir}" />
+		<junit fork="yes" printsummary="withOutAndErr">
+			<formatter type="xml" />
+			<test name="com.appium.utils.Pck" todir="${junit.output.dir}" />
+			<classpath refid="appium_ant_testng.classpath" />
+		</junit>
+	</target>
+	<target name="junitreport">
+		<junitreport todir="${junit.output.dir}">
+			<fileset dir="${junit.output.dir}">
+				<include name="TEST-*.xml" />
+			</fileset>
+			<report format="frames" todir="${junit.output.dir}" />
+		</junitreport>
+	</target>
+</project>

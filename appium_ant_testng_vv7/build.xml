@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<project name="appium_ant_testng_vv7" basedir="." default="Runner">
+	<!--资源文件位置-->
+	<property name="src" value="src" />
+	<!--编译的目标位置-->
+	<property name="dest" value="classes" />
+	<!--lib的位置-->
+	<property name="lib.dir" value="${basedir}/lib" />
+	<property name="output.dir" value="${basedir}/test-output" />
+	<!-- Build classpath 指定定lib所在位置-->
+	<path id="compile.path">
+		<fileset dir="${lib.dir}/">
+			<include name="*.jar" />
+		</fileset>
+		<pathelement location="${src}" />
+		<pathelement location="${dest}" />
+	</path>
+
+	<target name="init">
+		<mkdir dir="${dest}" />
+	</target>
+
+	<target name="compile" depends="init">
+		<echo>compile tests</echo>
+		<javac srcdir="${src}" destdir="${dest}" encoding="UTF-8" classpathref="compile.path" includeantruntime="on">
+			<compilerarg line="-encoding GBK " />
+		</javac>
+	</target>
+	<taskdef resource="testngtasks" classpath="${lib.dir}/testng-6.8.jar" />
+
+	<!-- 开始测试 -->
+	<target name="Runner" depends="compile">
+		<echo>running tests</echo>
+		<testng classpathref="compile.path" outputdir="${output.dir}" parallel="true">
+			<xmlfileset dir="${src}/" includes="testng.xml" />
+			<classfileset dir="${dest}">
+				<include name="/*.class" />
+			</classfileset>
+		</testng>
+	</target>
+
+	<!-- 生成报告 -->
+	<target name="transform" description="report">
+		<xslt in="${test-output.dir}/testng-results.xml" style="${test-output.dir}/testng-results.xsl" out="${test-output.dir}/index.html" force="yes">
+			<param name="testNgXslt.outputDir" expression="${output.dir}" />
+			<classpath refid="compile.path" />
+		</xslt>
+	</target>
+</project>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="E:/JAR27/java-client-2.2.0.jar"/>
+	<classpathentry kind="lib" path="E:/JAR27/reportng-1.1.4.jar"/>
+	<classpathentry kind="lib" path="E:/JAR27/selenium-java-2.45.0.jar"/>
+	<classpathentry kind="lib" path="E:/JAR27/selenium-server-standalone-2.45.0.jar"/>
+	<classpathentry kind="lib" path="E:/JAR27/testng-6.8.jar"/>
+	<classpathentry kind="lib" path="E:/JAR27/velocity-dep-1.4.jar"/>
+	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Adt/adt-bundle-windows-x86_64-20140321/sdk/platforms/android-19/android.jar"/>
+	<classpathentry kind="lib" path="C:/Adt/adt-bundle-windows-x86_64-20140321/sdk/platforms/android-19/uiautomator.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

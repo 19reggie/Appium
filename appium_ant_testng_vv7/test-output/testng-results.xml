@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="1" total="1" passed="0">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="33182" started-at="2015-05-30T01:07:51Z" finished-at="2015-05-30T01:08:25Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="33182" started-at="2015-05-30T01:07:51Z" finished-at="2015-05-30T01:08:25Z">
+      <class name="com.vv7.controllers.Runner">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.vv7.controllers.Runner@1bc6a36e]" name="setUp" is-config="true" duration-ms="11887" started-at="2015-05-30T09:07:51Z" finished-at="2015-05-30T09:08:03Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="FAIL" signature="test_Settings()[pri:0, instance:com.vv7.controllers.Runner@1bc6a36e]" name="test_Settings" duration-ms="19734" started-at="2015-05-30T09:08:03Z" finished-at="2015-05-30T09:08:23Z">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[An element could not be located on the page using the given search parameters. (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 11.40 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.45.0', revision: '32a636c', time: '2015-03-05 22:01:35'
+System info: host: 'DL-PC', ip: '18.8.0.116', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_05'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities [{appPackage=io.appium.unlock, networkConnectionEnabled=true, warnings={}, databaseEnabled=false, deviceName=Android Emulator, platform=LINUX, appActivity=.Unlock, desired={appPackage=io.appium.unlock, appActivity=.Unlock, platformVersion=4.4, browserName=, unicodeKeyboard=true, platformName=Android, deviceName=Android Emulator, resetKeyboard=true}, platformVersion=4.4, webStorageEnabled=false, locationContextEnabled=false, browserName=, takesScreenshot=true, javascriptEnabled=true, unicodeKeyboard=true, platformName=Android, resetKeyboard=true}]
+Session ID: 54c9980d-21e4-42b0-a386-a302f796dd70
+*** Element info: {Using=name, value=卞強利大}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: An element could not be located on the page using the given search parameters. (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 11.40 seconds
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '2.45.0', revision: '32a636c', time: '2015-03-05 22:01:35'
+System info: host: 'DL-PC', ip: '18.8.0.116', os.name: 'Windows 7', os.arch: 'amd64', os.version: '6.1', java.version: '1.8.0_05'
+Driver info: io.appium.java_client.android.AndroidDriver
+Capabilities [{appPackage=io.appium.unlock, networkConnectionEnabled=true, warnings={}, databaseEnabled=false, deviceName=Android Emulator, platform=LINUX, appActivity=.Unlock, desired={appPackage=io.appium.unlock, appActivity=.Unlock, platformVersion=4.4, browserName=, unicodeKeyboard=true, platformName=Android, deviceName=Android Emulator, resetKeyboard=true}, platformVersion=4.4, webStorageEnabled=false, locationContextEnabled=false, browserName=, takesScreenshot=true, javascriptEnabled=true, unicodeKeyboard=true, platformName=Android, resetKeyboard=true}]
+Session ID: 54c9980d-21e4-42b0-a386-a302f796dd70
+*** Element info: {Using=name, value=卞強利大}
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:408)
+	at org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:204)
+	at org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:156)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:599)
+	at io.appium.java_client.AppiumDriver.execute(AppiumDriver.java:180)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:352)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElementByName(RemoteWebDriver.java:425)
+	at com.vv7.scripts.Settings.TT(Settings.java:31)
+	at com.vv7.controllers.Runner.test_Settings(Runner.java:52)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:483)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test_Settings -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.vv7.controllers.Runner@1bc6a36e]" name="tearDown" is-config="true" duration-ms="1529" started-at="2015-05-30T09:08:23Z" finished-at="2015-05-30T09:08:25Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.vv7.controllers.Runner -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
