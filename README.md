@@ -1,6 +1,6 @@
 # Appium
 ## 环境搭建
-1.安装[http://www.nodejs.org/download/](http://www.nodejs.org/download/ "Node.js")
+1.安装[nodejs](http://www.nodejs.org/download/ "Node.js")
 2.在线安装Appium
 进入命令提示符
 输入命令： npm install -g appium
@@ -9,6 +9,6 @@
 导入Selenium架包
 导入Appium架包
 4.API
-[http://appium.github.io/java-client/](http://appium.github.io/java-client/ "Appium_API_Java")
+[Appium_API_Java](http://appium.github.io/java-client/ "Appium_API_Java")
 
 
