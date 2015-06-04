@@ -6,60 +6,7 @@
 5. 创建Java工程，导入相关依赖架包  
  [java-client](http://appium.io/downloads.html "java-client")  
  [selenium-java](http://docs.seleniumhq.org/ "selenium-java")  
-6. 一个简单的demo    
-
-```
-public class Net {
-    
-    	public static AndroidDriver dr;
-    
-    	@BeforeMethod
-    	public void setUp() throws Exception {
-    		DesiredCapabilities capabilities = new DesiredCapabilities();
-    		capabilities.setCapability(CapabilityType.BROWSER_NAME, "");
-    		capabilities.setCapability("platformName", "Android");
-    		capabilities.setCapability("deviceName", "Android Emulator");
-    		capabilities.setCapability("platformVersion", "4.4");
-    		capabilities.setCapability("appPackage", "io.appium.unlock");
-    		capabilities.setCapability("appActivity", ".Unlock");
-    		// 中文输入
-    		capabilities.setCapability("unicodeKeyboard", "True");
-    		capabilities.setCapability("resetKeyboard", "True");
-    		dr = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"),
-    				capabilities);
-    		dr.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    	}
-    
-    	@AfterMethod
-    	public void tearDown() throws Exception {
-    		dr.quit();
-    	}
-    
-    	@Test
-    	public void TT() {
-    
-    		try {
-    			// 启动app
-                //AppsInfo.Net[0] 为appPackage
-                //AppsInfo.Net[1] 为appActivity
-    			dr.startActivity(AppsInfo.Net[0], AppsInfo.Net[1]);
-    			TimeUnit.SECONDS.sleep(1);//延迟1s
-    			// 通过content-desc属性进行定位
-    			WebElement moreBtn = dr
-    					.findElementByAndroidUIAutomator("new UiSelector().description(\"More\")");
-    			Assert.assertNotNull(moreBtn);
-    
-    		} catch (IllegalArgumentException e) {
-    			e.printStackTrace();
-    		} catch (InterruptedException e) {
-    			e.printStackTrace();
-    		}
-    	   }
-    
-    }
-```
-
-### appium的一些方法汇总  
+6. appium的一些方法汇总  
 
 **findElementByAndroidUIAutomator()**   
 WebElement el = driver.findElementByAndroidUIAutomator("new UiSelector().description(\"More\")");
